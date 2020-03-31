@@ -6,7 +6,10 @@ class App extends Component {
     return (
       <div data-test='App'>
         Hello World
-        
+
+        <button data-type='button'>
+        Increase temperature
+        </button>
       </div>
     );
   }

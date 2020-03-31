@@ -12,7 +12,6 @@ describe('Testing the homepage', () => {
   beforeEach(() => wrapper = shallow(<App/>));
 
   it('renders wrapper', () => {
-    const wrapper = shallow(<App />)
     expect(wrapper.find("[data-test='App']").length).toBe(1)
 
     // const div = document.createElement('div')
@@ -21,18 +20,6 @@ describe('Testing the homepage', () => {
     // expect(linkElement).toBeInTheDocument();
   });
   it('renders increment button', () => {
-
-  })
-
-  it('render display counters', () => {
-
-  })
-
-  it('countere state starts at 0', () => {
-
-  })
-
-  it('increases display when button presses', () => {
-
+    expect(wrapper.find("[data-type='button']").length).toEqual(1)
   })
 })
