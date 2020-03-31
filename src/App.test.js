@@ -22,4 +22,7 @@ describe('Testing the homepage', () => {
   it('renders increment button', () => {
     expect(wrapper.find("[data-type='button']").length).toEqual(1)
   })
+  it('render displays counters', () => {
+    expect(wrapper.find("[data-type='counterValue']").length).toEqual(1)
+  })
 })
