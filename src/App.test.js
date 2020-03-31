@@ -20,4 +20,19 @@ describe('Testing the homepage', () => {
     // const linkElement = getByText(/Hello World/i);
     // expect(linkElement).toBeInTheDocument();
   });
+  it('renders increment button', () => {
+
+  })
+
+  it('render display counters', () => {
+
+  })
+
+  it('countere state starts at 0', () => {
+
+  })
+
+  it('increases display when button presses', () => {
+
+  })
 })
