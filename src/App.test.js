@@ -56,12 +56,22 @@ describe('Testing the homepage', () => {
     expect(initialCounterState).toBe(0)
   })
   it('clicks on the button and counter display increase', () => {
-    wrapper.setState({'counter': 0})
+    const initialCounterState = 10
+    wrapper.setState({'counter': initialCounterState})
     const counterState = wrapper.state('counter')
-    expect(counterState).toBe(0)
+    expect(counterState).toBe(initialCounterState)
     const increase = findByTestAttr(wrapper, "increase-button")
     increase.simulate('click')
     const counterDisplay = findByTestAttr(wrapper, 'counter-value')
     expect(counterDisplay.text()).toContain(counterState+1)
+  })
+  it('clicks the button and reduce counter', () => {
+    const initialCounterState = 10
+    wrapper.setState({counter: initialCounterState})
+    const counterState = wrapper.state('counter')
+    expect(counterState).toBe(initialCounterState)
+    wrapper.find("[data-test='decrease-button']").simulate('click')
+    const counterDisplay = wrapper.find("[data-test='counter-value']")
+    expect(counterDisplay.text()).toContain(counterState-1)
   })
 })

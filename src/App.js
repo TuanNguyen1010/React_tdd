@@ -19,6 +19,12 @@ class App extends Component {
         >
         Increase temperature
         </button>
+        <button 
+        onClick={() => {this.setState({counter: this.state.counter-1})}}
+        data-test='decrease-button'
+        >
+        Decrease temperature
+        </button>
       </div>
     );
   }
