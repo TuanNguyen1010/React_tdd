@@ -5,10 +5,8 @@ class App extends Component {
   render() {
     return (
       <div data-test='App'>
-        <h1 data-type='counterValue'> Current counter is </h1>
-        Hello World
-
-        <button data-type='button'>
+        <h1 data-test='counter-value'> Current counter is </h1>
+        <button data-test='increase-button'>
         Increase temperature
         </button>
       </div>
