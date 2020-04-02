@@ -12,8 +12,11 @@ class App extends Component {
   render() {
     return (
       <div data-test='App'>
-        <h1 data-test='counter-value'> Current counter is </h1>
-        <button data-test='increase-button'>
+        <h1 data-test='counter-value'> Current counter is {this.state.counter}</h1>
+        <button 
+        data-test='increase-button'
+        onClick={() => {this.setState({ counter: this.state.counter + 1})}}
+        >
         Increase temperature
         </button>
       </div>

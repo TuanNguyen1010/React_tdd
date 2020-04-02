@@ -14,12 +14,14 @@ describe('Testing the homepage', () => {
   * Factory function to create a ShallowWrapper for the app component
   * @function setup
   * @param {object} props - components props specific to this project
-  * @param {any} state - initial state for setup
+  * @param {object} state - initial state for setup
   * @returns {ShallowWrapper} 
   */
 
   const setup = ({props={}, state=null}) => {
-    return shallow(<App />)
+    const wrapper = shallow(<App />)
+    if (state) wrapper.setState(state)
+    return wrapper
   }
 
   /**
@@ -52,5 +54,14 @@ describe('Testing the homepage', () => {
   it('starts the counter at 0', () => {
     const initialCounterState = wrapper.state('counter')
     expect(initialCounterState).toBe(0)
+  })
+  it('clicks on the button and counter display increase', () => {
+    wrapper.setState({'counter': 0})
+    const counterState = wrapper.state('counter')
+    expect(counterState).toBe(0)
+    const increase = findByTestAttr(wrapper, "increase-button")
+    increase.simulate('click')
+    const counterDisplay = findByTestAttr(wrapper, 'counter-value')
+    expect(counterDisplay.text()).toContain(counterState+1)
   })
 })
