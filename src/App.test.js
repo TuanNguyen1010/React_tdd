@@ -50,6 +50,7 @@ describe('Testing the homepage', () => {
     expect(counterDisplay.length).toEqual(1)
   })
   it('starts the counter at 0', () => {
-    // expect
+    const initialCounterState = wrapper.state('counter')
+    expect(initialCounterState).toBe(0)
   })
 })
