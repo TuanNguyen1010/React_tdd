@@ -65,13 +65,24 @@ describe('Testing the homepage', () => {
     const counterDisplay = findByTestAttr(wrapper, 'counter-value')
     expect(counterDisplay.text()).toContain(counterState+1)
   })
-  it('clicks the button and reduce counter', () => {
+  it('clicks the decrease button and reduce counter', () => {
     const initialCounterState = 10
     wrapper.setState({counter: initialCounterState})
     const counterState = wrapper.state('counter')
     expect(counterState).toBe(initialCounterState)
-    wrapper.find("[data-test='decrease-button']").simulate('click')
+    const decreaseButton = findByTestAttr(wrapper, 'decrease-button')
+    decreaseButton.simulate('click')
     const counterDisplay = wrapper.find("[data-test='counter-value']")
     expect(counterDisplay.text()).toContain(counterState-1)
+  })
+  it('display an error when decrease button clicked while on 0', () => {
+    const initialCounterState = 0
+    wrapper.setState({counter: initialCounterState})
+    const counterState = wrapper.state('counter')
+    expect(counterState).toBe(initialCounterState)
+    const decreaseButton = findByTestAttr(wrapper, 'decrease-button')
+    decreaseButton.simulate('click')
+    const App = wrapper.find("[data-test='App']")
+    expect(App.text()).toContain("Error, can't go below 0")
   })
 })
