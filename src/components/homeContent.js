@@ -1,21 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+import CounterContent from './counterContent';
 
-class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state={
-      counter: 0,
-      error: true,
-    }
-  }
-
-  render() {
+function Home() {
     return (
       <div data-test='HomePage'>
-          <h1> This is the Home page</h1>
+          <h1> Hi! </h1>
+          <h2> This is Tuan's testing portfolio</h2>
       </div>
     );
   }
-}
 
 export default Home;

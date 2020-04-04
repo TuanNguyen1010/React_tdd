@@ -1,5 +1,5 @@
 import React from 'react';
-import counterContent from '../components/counterContent';
+import CounterContent from '../components/counterContent';
 
 function CounterPage() {
   return (
@@ -7,7 +7,7 @@ function CounterPage() {
       <h1> 
         This is the counter page
       </h1>
-      <counterContent></counterContent>
+      <CounterContent> </CounterContent>
     </div>
   )
 

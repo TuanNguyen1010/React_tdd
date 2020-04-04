@@ -7,8 +7,8 @@ function Nav() {
       <h3> Tuan Logo's</h3>
       <Link to='/'> React TDD</Link>
       <ul className='nav-links'> 
-      <Link to='/counter'> Counter Game</Link>
-        <li> Lotto game</li>
+      <Link to='/counter'> Counter</Link>
+      <Link to='/Jotto'> Jotto</Link>
       </ul>
     </nav>
   )
