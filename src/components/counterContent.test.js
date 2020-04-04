@@ -2,6 +2,7 @@ import React from 'react';
 import Enzyme, {shallow} from 'enzyme';
 import EnzymeAdaptor from 'enzyme-adapter-react-16';
 import CounterContent from './counterContent';
+import {findByTestAttr} from '../../test/testUtils'
 
 Enzyme.configure({adapter: new EnzymeAdaptor() })
 
@@ -23,16 +24,7 @@ describe('Testing the homepage', () => {
     if (state) wrapper.setState(state)
     return wrapper
   }
-
-  /**
-   * Return ShallowWrapper containing node(s) with the given data-test value.
-   * @param {ShallowWrapper} wrapper - Enzyme shallow wrapper to search within 
-   * @param {string} value - Value of data-test attributed for search
-   * @returns {ShallowWrapper}
-   */
-  const findByTestAttr = ( wrapper, val) => {
-    return wrapper.find(`[data-test='${val}']`)
-  }
+  
   it('renders increment button', () => {
     const incrementButton = findByTestAttr(wrapper, "increase-button")
     expect(incrementButton.length).toEqual(1)
