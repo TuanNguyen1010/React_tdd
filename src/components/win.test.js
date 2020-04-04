@@ -8,14 +8,12 @@ import checkPropTypes from 'check-prop-types';
 Enzyme.configure({adapter: new EnzymeAdaptor() })
 
 describe('Winning page', () => {
-  let wrapper 
-  beforeEach(() => {wrapper = shallow(<Win/>)});
-
   const setup = (props={}) => {
     return shallow(<Win{...props}/>)
   }
 
   it('renders without error', () => {
+    const wrapper = setup({win: false})
     const win = findByTestAttr(wrapper, 'win-component')
     expect(win.length).toEqual(1)
   })
@@ -29,9 +27,9 @@ describe('Winning page', () => {
     const win = findByTestAttr(wrapper,'win-component')
     expect(win.text()).not.toContain('error')
   })
-  it('does not throw warning with expected props', () => {
+  it('does not throw warning with valid props', () => {
     const expectedProp = {win: false}
-    const propError = checkPropTypes(Win.prototype, expectedProp, 'prop', Win.name)
+    const propError = checkPropTypes(Win.propTypes, expectedProp, 'prop', Win.name)
     expect(propError).toBeUndefined()
   })
 })
