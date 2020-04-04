@@ -1,12 +1,13 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function Nav() {
   return (
     <nav> 
       <h3> Tuan Logo's</h3>
-      <h4> React TDD</h4>
+      <Link to='/'> React TDD</Link>
       <ul className='nav-links'> 
-        <li> Counter game</li>
+      <Link to='/counter'> Counter Game</Link>
         <li> Lotto game</li>
       </ul>
     </nav>

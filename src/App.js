@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Nav from './Nav/Nav'
 import CounterPage from './pages/counter'
+import Home from './pages/home'
+import HomeContent from './components/homeContent'
 import CounterContent from './components/counterContent'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -39,9 +41,11 @@ class App extends Component {
       <Router>
       <div data-test='App'>
               <Nav/> 
-        <Link to='/counter'> Go to counter page</Link>
       </div>
+      <Switch>
+      <Route path='/' exact component={HomeContent}></Route>
       <Route path='/counter' component={CounterContent}></Route>
+      </Switch>
       </Router>
     );
   }

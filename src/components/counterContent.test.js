@@ -33,16 +33,6 @@ describe('Testing the homepage', () => {
   const findByTestAttr = ( wrapper, val) => {
     return wrapper.find(`[data-test='${val}']`)
   }
-
-  it('renders wrapper', () => {
-    const appComponent = findByTestAttr(wrapper, "App")
-    expect(appComponent.length).toBe(1)
-
-    // const div = document.createElement('div')
-    // const { getByText } = render(<App />);
-    // const linkElement = getByText(/Hello World/i);
-    // expect(linkElement).toBeInTheDocument();
-  });
   it('renders increment button', () => {
     const incrementButton = findByTestAttr(wrapper, "increase-button")
     expect(incrementButton.length).toEqual(1)
