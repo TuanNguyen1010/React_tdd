@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
-import Nav from './Nav/Nav'
-import CounterPage from './pages/counter'
-import CounterContent from './components/counterContent'
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-class App extends Component {
+class CounterContent extends Component {
   constructor(props) {
     super(props);
     this.state={
@@ -36,15 +31,31 @@ class App extends Component {
   render() {
     const errorClass = this.state.error
     return (
-      <Router>
       <div data-test='App'>
-              <Nav/> 
-        <Link to='/counter'> Go to counter page</Link>
+        <h1 data-test='counter-value'> 
+        Current counter is {this.state.counter}
+        </h1>
+
+        <div data-test='error-message' 
+        style={{ display: (errorClass ? 'none' : 'block')}}
+        > 
+        Error, can't go below 0 
+        </div>
+        <button 
+        data-test='increase-button'
+        onClick={this.increaseCounter}
+        >
+        Increase temperature
+        </button>
+        <button 
+        data-test='decrease-button'
+        onClick={this.decreaseCounter}
+        >
+        Decrease temperature
+        </button>
       </div>
-      <Route path='/counter' component={CounterContent}></Route>
-      </Router>
     );
   }
 }
 
-export default App;
+export default CounterContent;
