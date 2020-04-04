@@ -3,6 +3,7 @@ import Enzyme, {shallow} from 'enzyme';
 import EnzymeAdaptor from 'enzyme-adapter-react-16';
 import Win from './win';
 import {findByTestAttr} from '../../test/testUtils'
+import checkPropTypes from 'check-prop-types';
 
 Enzyme.configure({adapter: new EnzymeAdaptor() })
 
@@ -27,5 +28,10 @@ describe('Winning page', () => {
     const wrapper = setup({win: true})
     const win = findByTestAttr(wrapper,'win-component')
     expect(win.text()).not.toContain('error')
+  })
+  it('does not throw warning with expected props', () => {
+    const expectedProp = {win: false}
+    const propError = checkPropTypes(Win.prototype, expectedProp, 'prop', Win.name)
+    expect(propError).toBeUndefined()
   })
 })

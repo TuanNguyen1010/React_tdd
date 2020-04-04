@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
-export default (props) =>{
+const Win = (props) =>{
   if (props.win) {
   return (
-  <div data-test='win-component'> </div>
+  <div data-test='win-component'> Win condition</div>
   )
   } else {
     return (
@@ -11,3 +12,5 @@ export default (props) =>{
     )
   }
 };
+
+export default Win;
