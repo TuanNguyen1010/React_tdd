@@ -10,8 +10,17 @@ describe('Winning page', () => {
   let wrapper 
   beforeEach(() => {wrapper = shallow(<Win/>)});
 
+  const setup = (props={}) => {
+    return shallow(<Win{...props}/>)
+  }
+
   it('renders without error', () => {
-    const win = findByTestAttr(wrapper, "win")
+    const win = findByTestAttr(wrapper, 'win-component')
     expect(win.length).toEqual(1)
+  })
+  it('renders error when "win-component" props is false', () => {
+    const wrapper = setup({win: false})
+    const lose = findByTestAttr(wrapper,'win-component')
+    expect(lose.text()).toContain('error')
   })
 })
