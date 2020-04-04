@@ -2,8 +2,7 @@ import React from 'react';
 import Enzyme, {shallow} from 'enzyme';
 import EnzymeAdaptor from 'enzyme-adapter-react-16';
 import Win from './win';
-import {findByTestAttr} from '../../test/testUtils'
-import checkPropTypes from 'check-prop-types';
+import {findByTestAttr, checkProps} from '../../test/testUtils'
 
 Enzyme.configure({adapter: new EnzymeAdaptor() })
 
@@ -29,7 +28,6 @@ describe('Winning page', () => {
   })
   it('does not throw warning with valid props', () => {
     const expectedProp = {win: false}
-    const propError = checkPropTypes(Win.propTypes, expectedProp, 'prop', Win.name)
-    expect(propError).toBeUndefined()
+    checkProps(Win, expectedProp)
   })
 })
