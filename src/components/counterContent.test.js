@@ -1,10 +1,7 @@
 import React from 'react';
-import Enzyme, {shallow} from 'enzyme';
-import EnzymeAdaptor from 'enzyme-adapter-react-16';
+import {shallow} from 'enzyme';
 import CounterContent from './counterContent';
 import {findByTestAttr} from '../../test/testUtils'
-
-Enzyme.configure({adapter: new EnzymeAdaptor() })
 
 describe('Testing the homepage', () => {
 
