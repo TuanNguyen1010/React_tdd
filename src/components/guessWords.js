@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const GuessWords = (props) => {
   return <div data-test='guessing'> 
-
+      <div data-test='guess_instructions'> Guess a five letter word</div>
   </div>
 }
 

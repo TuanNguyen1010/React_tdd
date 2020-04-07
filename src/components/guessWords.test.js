@@ -27,4 +27,9 @@ describe('Guess words', () => {
     const component = findByTestAttr(wrapper, 'guessing')
     expect(component.length).toEqual(1)
   })
+  it('renders instruction to guess words', () => {
+    const wrapper = setup({guessedWords:[]})
+    const component = findByTestAttr(wrapper, 'guess_instructions')
+    expect(component.text().length).not.toBe(0)
+  })
 })
