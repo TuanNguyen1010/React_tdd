@@ -17,15 +17,15 @@ class CounterContent extends Component {
     else
     // this.setState({error: true})
     this.setState({ error: false })
-    console.log('testing')
-    console.log(this.state.error)
+    // console.log('testing')
+    // console.log(this.state.error)
     // this.setState({ showing: !showing })
   }
 
   increaseCounter() {
     this.setState({error: true})
     this.setState({ counter: this.state.counter + 1})
-    console.log(this.state.error)
+    // console.log(this.state.error)
   }
 
   render() {

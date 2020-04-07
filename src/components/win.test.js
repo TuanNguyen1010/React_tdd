@@ -4,9 +4,7 @@ import EnzymeAdaptor from 'enzyme-adapter-react-16';
 import Win from './win';
 import {findByTestAttr, checkProps} from '../../test/testUtils'
 
-Enzyme.configure({adapter: new EnzymeAdaptor() })
-
-describe('Winning page', () => {
+describe('Winning', () => {
   const setup = (props={}) => {
     return shallow(<Win{...props}/>)
   }
