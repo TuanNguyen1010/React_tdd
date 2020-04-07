@@ -1,11 +1,25 @@
 import React from 'react';
 import Enzyme, {shallow} from 'enzyme';
-import EnzymeAdaptor from 'enzyme-adapter-react-16';
-import guessWords from './guessWords';
 import {findByTestAttr, checkProps} from '../../test/testUtils'
+import GuessWords from './guessWords';
+
+const MockProps = {
+  guessedWords: [
+  {guessedWord: 'happy',
+  letterMatch: 3
+  }]
+}
+
+const setup = (props={}) => {
+  const setupProps = {...MockProps, ...props}
+  return shallow(<GuessWords{...setupProps}/>)
+}
 
 describe('Guess words', () => {
   it('should have functionatilty', () => {
-    expect(typeof guessWords).toBe('function')
+    expect(typeof GuessWords).toBe('function')
+  })
+  it('does not throw error when valid props passed through', () => {
+    checkProps(GuessWords, MockProps)
   })
 })
