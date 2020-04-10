@@ -1,18 +1,23 @@
 import React, { Component } from "react";
+import {connect, MapStateToProps} from 'react-redux'
+import Jotto from "./jottoContent";
 
 class Form extends Component {
 
 render() {
 
   return(
-    <div data-test='input'>
+    <div data-test='inputComponent'>
       <form>
-      <input type="text" name='name'/> 
+      <input data-test='input' type="text" name='name'/> 
       <br></br>
-      <input type="submit" value="Submit"></input>
+      <input data-test='submit' type="submit" value="Submit"></input>
       </form>
       </div>
   )
   }}
+  const mapStateToProps = (state) => {
+    return {}
+  }
 
-  export default Form;
+  export default connect(mapStateToProps)(Form  );
