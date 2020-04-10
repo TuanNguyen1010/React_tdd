@@ -5,4 +5,4 @@ export function getLetterMatchCount(guessWord, secretWord) {
     if (secretWord.includes(letter)) {count ++}
   })
   return count
-}  
+}   
