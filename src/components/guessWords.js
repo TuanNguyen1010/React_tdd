@@ -9,14 +9,13 @@ const GuessWords = (props) => {
       <span data-test='guess_instructions'> Guess the hidden 5 letter word word</span>
     )} 
     else {
-      console.log(props.guessedWords.length)
       const guessedWordsRow = props.guessedWords.map((word, index) => (
          <tr data-tes='previous_guess' key={index}> 
            <td>{word.guessedWord}</td>
            <td> {word.letterMatch}</td>
           </tr>
       ))
-      content = ( 
+      content = (  
       <div data-test='previous_guess'> 
       <span> Try another 5 letter word</span>
       <h3> Guessed</h3>
