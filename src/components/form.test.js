@@ -13,17 +13,17 @@ describe('Form', () => {
 
   it('render component when no guess have been made', () => { 
     const wrapper = setup()
-    const guessForm = findByTestAttr(wrapper, 'inputComponent')
-    expect(guessForm.length).toBe(1)
+    const inputComponent = findByTestAttr(wrapper, 'inputComponent')
+    expect(inputComponent.length).toBe(1)
   })
   it('render a form when no guess have been made', () => { 
     const wrapper = setup()
-    const guessForm = findByTestAttr(wrapper, 'input')
-    expect(guessForm.length).toBe(1)
+    const inputForm = findByTestAttr(wrapper, 'input')
+    expect(inputForm.length).toBe(1)
   })
   it('render a submit button when no wrong guess made', () => {
     const wrapper = setup()
-    const guessForm = findByTestAttr(wrapper, 'submit')
-    expect(guessForm.length).toBe(1)
+    const submitButton = findByTestAttr(wrapper, 'submit')
+    expect(submitButton.length).toBe(1)
   })
 })
