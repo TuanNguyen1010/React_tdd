@@ -7,12 +7,6 @@ import Counter from './pages/counter'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state={
-      counter: 0
-    }
-  }
 
   render() {
     return (
