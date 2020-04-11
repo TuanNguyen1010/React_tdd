@@ -1,23 +1,26 @@
 import React, { Component } from "react";
-import {connect, MapStateToProps} from 'react-redux'
+import {connect} from 'react-redux'
 import Jotto from "./jottoContent";
 
 class Form extends Component {
 
 render() {
-
-  return(
-    <div data-test='inputComponent'>
-      <form>
+  const contents = this.props.sucess ? null : 
+  (
+    <form>
       <input data-test='input' type="text" name='name'/> 
       <br></br>
       <input data-test='submit' type="submit" value="Submit"></input>
-      </form>
+    </form>
+  )
+  return(
+    <div data-test='inputComponent'>
+      {contents}
       </div>
   )
   }}
-  const mapStateToProps = (state) => {
-    return {}
+  const mapStateToProps = ({sucess}) => {
+    return {sucess}
   }
 
   export default connect(mapStateToProps)(Form  );
