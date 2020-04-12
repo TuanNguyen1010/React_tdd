@@ -4,6 +4,7 @@ import {guessWord} from './actions'
 describe('guess word action dispatcher', () => {
   const secretWordReducer = 'party'
   const wrong = 'train'
+  const wrong2 = 'rainy'
 
   let store
   const initialState = { secretWordReducer };
@@ -35,6 +36,23 @@ describe('guess word action dispatcher', () => {
       }]
     }
     console.log(newState)
+    expect(newState).toEqual(expectedState)
+  })
+  it('updates state when multiple wrong guesses', () => {
+    store.dispatch(guessWord(wrong2))
+    store.dispatch(guessWord(wrong))
+    const newState = store.getState()
+    const expectedState = {
+      ...initialState,
+      successReducer: false, 
+      guessedWordsReducer: [{
+        guessedWord: wrong2,
+        letterMatchCount: 3
+      }, {
+        guessedWord: wrong,
+        letterMatchCount: 3 
+      }]
+    }
     expect(newState).toEqual(expectedState)
   })
 })
