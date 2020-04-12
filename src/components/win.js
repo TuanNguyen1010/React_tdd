@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 const Win = (props) => {
-  if (props.win) {
+  if (props.success) {
   return (
   <div data-test='win-component'> congratulations you win</div>
   )
@@ -14,7 +14,7 @@ const Win = (props) => {
 };
 
 Win.propTypes = {
-  win: PropTypes.bool.isRequired,
+  success: PropTypes.bool.isRequired,
 };
 
 export default Win;

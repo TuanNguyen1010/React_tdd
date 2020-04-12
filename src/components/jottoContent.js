@@ -7,7 +7,7 @@ function Jotto() {
     return (
       <div data-test='Jotto-page'>
         <h2> This is Jotto</h2>
-        <Win win={false}/> 
+        <Win success={false}/> 
         <Form/> 
         <GuessWords guessedWords={[]}/> 
       </div>

@@ -28,12 +28,13 @@ describe('guess word action dispatcher', () => {
     const newState=store.getState()
     const expectedState ={
       ...initialState,
-      successReducer: false,
+      successReducer: true,
       guessedWordsReducer: [{
         guessedWord: secretWordReducer,
         letterMatchCount: 5
       }]
     }
+    console.log(newState)
     expect(newState).toEqual(expectedState)
   })
 })

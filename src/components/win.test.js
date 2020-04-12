@@ -9,22 +9,22 @@ describe('Winning', () => {
   }
 
   it('renders without error', () => {
-    const wrapper = setup({win: false})
+    const wrapper = setup({success: false})
     const win = findByTestAttr(wrapper, 'win-component')
     expect(win.length).toEqual(1)
   })
   it('renders error when win props is false', () => {
-    const wrapper = setup({win: false})
+    const wrapper = setup({success: false})
     const lose = findByTestAttr(wrapper,'win-component')
     expect(lose.text()).toContain('Game still on-going')
   })
   it('render message when win condition is true', () => {
-    const wrapper = setup({win: true})
+    const wrapper = setup({success: true})
     const win = findByTestAttr(wrapper,'win-component')
     expect(win.text()).not.toContain('Game still on-going')
   })
   it('does not throw warning with valid props', () => {
-    const expectedProp = {win: false}
+    const expectedProp = {success: false}
     checkProps(Win, expectedProp)
   })
 })
