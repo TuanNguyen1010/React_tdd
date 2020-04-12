@@ -11,6 +11,7 @@ describe('guess word action dispatcher', () => {
   beforeEach(()  => {
     store = storeFactory(initialState)
   })
+  
   it('update state when wrong  guess words', () => {
     store.dispatch(guessWord(wrong))
     const newState = store.getState()
