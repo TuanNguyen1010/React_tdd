@@ -37,3 +37,13 @@ describe('Form', () => {
     expect(submitButton.length).toBe(0)
   })
 })
+
+describe('Redux props', () => {
+  it('has success state as props', () => {
+  const successReducer = true
+  const wrapper = setup({successReducer})
+  const sucessfulProp = wrapper.instance().props.successReducer
+  console.log(wrapper.instance())
+  expect(sucessfulProp).toEqual(successReducer)
+  })
+  })
