@@ -43,7 +43,12 @@ describe('Redux props', () => {
   const successReducer = true
   const wrapper = setup({successReducer})
   const sucessfulProp = wrapper.instance().props.successReducer
-  console.log(wrapper.instance())
+  // console.log(wrapper.instance())
   expect(sucessfulProp).toEqual(successReducer)
   })
+  it('has guessWord action creator', () => {
+    const wrapper = setup()
+    const guessWordProp = wrapper.instance().props.guessWord
+    expect(guessWordProp).toBeInstanceOf(Function)
   })
+})

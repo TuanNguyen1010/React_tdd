@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {connect} from 'react-redux'
 import Jotto from "./jottoContent";
+import {guessWord} from '../actions'
 
 class Form extends Component {
 
@@ -23,4 +24,4 @@ render() {
     return {successReducer}
   }
 
-  export default connect(mapStateToProps)(Form  );
+  export default connect(mapStateToProps, {guessWord})(Form  );
