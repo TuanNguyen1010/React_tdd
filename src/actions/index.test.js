@@ -1,7 +1,7 @@
-import {actionTypes, correct_guess} from './index'
+import {actionTypes, guessWord} from './index'
 
 describe('actionTypes', () => {
   it('should equal same', () => {
-    expect(correct_guess()).toEqual({type: actionTypes.CORRECT_GUESS })
+    // expect(guessWord()).toEqual({type: actionTypes.CORRECT_GUESS })
   })
 }) 

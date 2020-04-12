@@ -5,7 +5,7 @@ import Jotto from "./jottoContent";
 class Form extends Component {
 
 render() {
-  const contents = this.props.sucess ? null : 
+  const contents = this.props.success ? null : 
   (
     <form>
       <input data-test='input' type="text" name='name'/> 
@@ -19,8 +19,8 @@ render() {
       </div>
   )
   }}
-  const mapStateToProps = ({sucess}) => {
-    return {sucess}
+  const mapStateToProps = ({success}) => {
+    return {success}
   }
 
   export default connect(mapStateToProps)(Form  );

@@ -1,6 +1,8 @@
  import {combineReducers} from 'redux'
- import sucess from './sucessReducer'
+ import successReducer from './successReducer'
+ import guessedWordsReducer from './guessedWordsReducer'
+ import secretWordReducer from './secretWordReducer'
 
  export default combineReducers({
-   sucess
+   successReducer, guessedWordsReducer, secretWordReducer 
  })
