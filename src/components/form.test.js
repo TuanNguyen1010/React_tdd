@@ -3,13 +3,13 @@ import Enzyme, {shallow} from 'enzyme';
 import {findByTestAttr, storeFactory} from '../../test/testUtils'
 import Form from './form';
 
-describe('Form', () => {
+const setup = (initialState={}) => {
+  const store = storeFactory(initialState)
+  const wrapper = shallow(<Form store={store}/>).dive().dive()
+  return wrapper
+}
 
-  const setup = (initialState={}) => {
-    const store = storeFactory(initialState)
-    const wrapper = shallow(<Form store={store}/>).dive().dive()
-    return wrapper
-  }
+describe('Form', () => {
 
   it('render component when no guess have been made', () => { 
     const wrapper = setup()
@@ -25,5 +25,15 @@ describe('Form', () => {
     const wrapper = setup()
     const submitButton = findByTestAttr(wrapper, 'submit')
     expect(submitButton.length).toBe(1)
+  })
+  it('does not render form when win condition has been met', () => {
+    const wrapper = setup({ successReducer: true })
+    const inputForm = findByTestAttr(wrapper, 'input')
+    expect(inputForm.length).toBe(0)
+  })
+  it('does not render a submit button when win condition met', () => {
+    const wrapper = setup({ successReducer: true })
+    const submitButton = findByTestAttr(wrapper, 'submit')
+    expect(submitButton.length).toBe(0)
   })
 })

@@ -13,7 +13,7 @@ class Jotto extends Component {
     return (
       <div data-test='Jotto-page'>
         <h2> This is Jotto</h2>
-        <Win success={false}/> 
+        <Win successReducer={false}/> 
         <Form/> 
         <GuessWords guessedWords={[]}/> 
       </div>
