@@ -41,4 +41,9 @@ describe("Jotto App", () => {
     const secretWordState = wrapper.instance().props.secretWordReducer
     expect(secretWordState).toEqual(secretWord)
   })
+  it('has a getSecretWord action creator function', () => {
+    const wrapper = setup()
+    const getSecretWordFunction = wrapper.instance().props.getSecretWord
+    expect(typeof getSecretWordFunction).toEqual('function')
+  })
 })
