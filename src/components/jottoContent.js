@@ -20,8 +20,8 @@ class Jotto extends Component {
     );
 }}
 const mapStateToProps = (state) => {
-  const {successReducer, guessedWordsReducer} = state
-  return {successReducer, guessedWordsReducer}
+  const {successReducer, guessedWordsReducer, secretWordReducer} = state
+  return {successReducer, guessedWordsReducer, secretWordReducer}
 }
 
 export default connect(mapStateToProps, {getSecretWord})(Jotto);

@@ -30,10 +30,15 @@ describe("Jotto App", () => {
     expect(sucessReducerState).toEqual(false)
   })
   it('has guessWordsReducer state after wrong guess', () => {
-    const wrongGuess = {guessedWordsReducer: [{guessedWord: 'apple', letterMatchCount: 4 }]}
-    const wrapper = setup(wrongGuess)
-    console.log(wrapper.instance().props)
+    const wrongGuess = [{guessedWord: 'apple', letterMatchCount: 4 }]
+    const wrapper = setup({guessedWordsReducer: wrongGuess})
     const guessedWordState = wrapper.instance().props.guessedWordsReducer
-    expect(guessedWordState).toEqual(wrongGuess.guessedWordsReducer)
+    expect(guessedWordState).toEqual(wrongGuess)
+  })
+  it('has SecretWord state', () => {
+    const secretWord = 'happy'
+    const wrapper = setup({secretWordReducer: secretWord})
+    const secretWordState = wrapper.instance().props.secretWordReducer
+    expect(secretWordState).toEqual(secretWord)
   })
 })
