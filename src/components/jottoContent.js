@@ -5,7 +5,7 @@ import Form from './form'
 import { getSecretWord } from '../actions';
 import {connect} from 'react-redux'
 
-class Jotto extends Component {
+export class Jotto extends Component {
   componentDidMount() {
     this.props.getSecretWord()
   }

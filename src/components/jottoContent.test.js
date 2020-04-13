@@ -1,7 +1,7 @@
 import React from 'react';
 import Enzyme, {shallow} from 'enzyme';
 import EnzymeAdaptor from 'enzyme-adapter-react-16';
-import Jotto from './jottoContent';
+import Jotto, {jottoContent} from './jottoContent';
 import {findByTestAttr, storeFactory} from '../../test/testUtils'
 import guessedWordsReducer from '../reducers/guessedWordsReducer';
 
@@ -26,8 +26,8 @@ describe("Jotto App", () => {
   })
   it('has default success reducer state of false', () => {
     const wrapper = setup()
-    const sucessReducerState = wrapper.instance().props.successReducer
-    expect(sucessReducerState).toEqual(false)
+    const successReducerState = wrapper.instance().props.successReducer
+    expect(successReducerState).toEqual(false)
   })
   it('has guessWordsReducer state after wrong guess', () => {
     const wrongGuess = [{guessedWord: 'apple', letterMatchCount: 4 }]
@@ -46,4 +46,18 @@ describe("Jotto App", () => {
     const getSecretWordFunction = wrapper.instance().props.getSecretWord
     expect(typeof getSecretWordFunction).toEqual('function')
   })
+  it('calls getSecretWord action when mounted', () => {
+    const getSecretWordMock = jest.fn()
+    const props = {
+      getSecretWord: getSecretWordMock(),
+      successReducer: false,
+      guessedWordsReducer: [],
+    }
+    const wrapper = setup(props)
+    const getSecretWordMockCount = getSecretWordMock.mock.calls.length
+    expect(getSecretWordMockCount).toBe(1)
+
+    
+  })
 })
+
