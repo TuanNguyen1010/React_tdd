@@ -1,7 +1,7 @@
 import React from 'react';
 import Enzyme, {shallow} from 'enzyme';
 import EnzymeAdaptor from 'enzyme-adapter-react-16';
-import Jotto, {jottoContent} from './jottoContent';
+import JottoContent, { Jotto } from './jottoContent';
 import {findByTestAttr, storeFactory} from '../../test/testUtils'
 import guessedWordsReducer from '../reducers/guessedWordsReducer';
 
@@ -10,7 +10,7 @@ Enzyme.configure({adapter: new EnzymeAdaptor() })
 describe("Jotto App", () => {
   const setup = (initialState) => {
     const store = storeFactory(initialState)
-    return shallow(<Jotto store={store}/>).dive().dive()
+    return shallow(<JottoContent store={store}/>).dive().dive()
   }
 
   let store
@@ -48,16 +48,15 @@ describe("Jotto App", () => {
   })
   it('calls getSecretWord action when mounted', () => {
     const getSecretWordMock = jest.fn()
-    const props = {
-      getSecretWord: getSecretWordMock(),
-      successReducer: false,
-      guessedWordsReducer: [],
-    }
-    const wrapper = setup(props)
+    // const props = {
+    //   getSecretWord: getSecretWordMock,
+    //   successReducer: false,
+    //   guessedWordsReducer: [],
+    // }
+    const wrapper = shallow(<Jotto getSecretWord={getSecretWordMock} />)
+    wrapper.instance().componentDidMount()
     const getSecretWordMockCount = getSecretWordMock.mock.calls.length
-    expect(getSecretWordMockCount).toBe(1)
-
-    
+    expect(getSecretWordMockCount).toBe(1) 
   })
 })
 
