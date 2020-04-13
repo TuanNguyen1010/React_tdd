@@ -25,7 +25,8 @@ describe("Jotto App", () => {
   })
   it('has default success reducer state of false', () => {
     const wrapper = setup()
-    const newState = store.getState()
+    const newState = wrapper.instance().props
+    console.log(newState)
     expect(newState.successReducer).toEqual(false)
   })
 })
