@@ -11,9 +11,21 @@ describe("Jotto App", () => {
     const store = storeFactory(initialState)
     return shallow(<Jotto store={store}/>).dive().dive()
   }
+
+  let store
+  const initialState = {};
+  beforeEach(()  => {
+    store = storeFactory(initialState)
+  })
+
   it('should render properly', () => {
     const wrapper = setup()
     const Jotto = findByTestAttr(wrapper, 'Jotto-page')
     expect(Jotto.length).toEqual(1)
+  })
+  it('has default success reducer state of false', () => {
+    const wrapper = setup()
+    const newState = store.getState()
+    expect(newState.successReducer).toEqual(false)
   })
 })
