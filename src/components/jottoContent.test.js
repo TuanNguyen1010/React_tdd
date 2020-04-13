@@ -3,6 +3,7 @@ import Enzyme, {shallow} from 'enzyme';
 import EnzymeAdaptor from 'enzyme-adapter-react-16';
 import Jotto from './jottoContent';
 import {findByTestAttr, storeFactory} from '../../test/testUtils'
+import guessedWordsReducer from '../reducers/guessedWordsReducer';
 
 Enzyme.configure({adapter: new EnzymeAdaptor() })
 
@@ -25,8 +26,14 @@ describe("Jotto App", () => {
   })
   it('has default success reducer state of false', () => {
     const wrapper = setup()
-    const newState = wrapper.instance().props
-    console.log(newState)
-    expect(newState.successReducer).toEqual(false)
+    const sucessReducerState = wrapper.instance().props.successReducer
+    expect(sucessReducerState).toEqual(false)
+  })
+  it('has guessWordsReducer state after wrong guess', () => {
+    const wrongGuess = {guessedWordsReducer: [{guessedWord: 'apple', letterMatchCount: 4 }]}
+    const wrapper = setup(wrongGuess)
+    console.log(wrapper.instance().props)
+    const guessedWordState = wrapper.instance().props.guessedWordsReducer
+    expect(guessedWordState).toEqual(wrongGuess.guessedWordsReducer)
   })
 })
