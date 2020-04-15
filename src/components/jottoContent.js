@@ -14,8 +14,8 @@ export class Jotto extends Component {
       <div data-test='Jotto-page'>
         <h2> This is Jotto</h2>
         <Win successReducer={this.props.successReducer}/> 
-        <Form successReducer={this.props.successReducer}/> 
-        <GuessWords guessedWords={this.props.guessedWordsReducer}/> 
+        <Form/> 
+        <GuessWords guessedWordsReducer={this.props.guessedWordsReducer}/> 
       </div>
     );
 }}

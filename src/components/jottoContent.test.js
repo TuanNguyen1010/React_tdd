@@ -48,7 +48,12 @@ describe("Jotto App", () => {
   })
   it('calls getSecretWord action when mounted', () => {
     const getSecretWordMock = jest.fn()
-    const wrapper = shallow(<Jotto getSecretWord={getSecretWordMock} />)
+    const props = {
+      getSecretWord: getSecretWordMock,
+      successReducer: false,
+      guessedWordsReducer: [{guessedWords: 'happy', letterMatchCount: 2}],
+    }
+    const wrapper = shallow(<Jotto {...props} />)
     wrapper.instance().componentDidMount()
     const getSecretWordMockCount = getSecretWordMock.mock.calls.length
     expect(getSecretWordMockCount).toBe(1) 

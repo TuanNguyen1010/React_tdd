@@ -3,16 +3,15 @@ import PropTypes from 'prop-types'
 
 const GuessWords = (props) => {
   let content
-
-  if (props.guessedWords.length === 0) {
+  if (props.guessedWordsReducer.length === 0) {
     content = (
       <span data-test='guess_instructions'> Guess the hidden 5 letter word word</span>
     )} 
     else {
-      const guessedWordsRow = props.guessedWords.map((word, index) => (
+      const guessedWordsRow = props.guessedWordsReducer.map((word, index) => (
          <tr data-tes='previous_guess' key={index}> 
            <td>{word.guessedWord}</td>
-           <td> {word.letterMatch}</td>
+           <td> {word.letterMatchCount}</td>
           </tr>
       ))
       content = (  
@@ -38,10 +37,10 @@ const GuessWords = (props) => {
 }
 
 GuessWords.propTypes = {
-  guessedWords: PropTypes.arrayOf(
+  guessedWordsReducer: PropTypes.arrayOf(
     PropTypes.shape({
        guessedWord: PropTypes.string.isRequired ,
-       letterMatch: PropTypes.number.isRequired
+       letterMatchCount: PropTypes.number.isRequired
     })
   ).isRequired
 }
