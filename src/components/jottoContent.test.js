@@ -51,7 +51,7 @@ describe("Jotto App", () => {
     const props = {
       getSecretWord: getSecretWordMock,
       successReducer: false,
-      guessedWordsReducer: [{guessedWords: 'happy', letterMatchCount: 2}],
+      guessedWordsReducer: [{guessedWord: 'happy', letterMatchCount: 2}],
     }
     const wrapper = shallow(<Jotto {...props} />)
     wrapper.instance().componentDidMount()
