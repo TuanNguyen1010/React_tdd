@@ -1,7 +1,7 @@
 import React from 'react';
 import Enzyme, {shallow} from 'enzyme';
 import {findByTestAttr, storeFactory} from '../../test/testUtils'
-import Form from './form';
+import Form, { UnconnectedForm} from './form';
 
 const setup = (initialState={}) => {
   const store = storeFactory(initialState)
@@ -50,5 +50,11 @@ describe('Redux props', () => {
     const wrapper = setup()
     const guessWordProp = wrapper.instance().props.guessWord
     expect(guessWordProp).toBeInstanceOf(Function)
+  })
+  it('calls the GUESSWORD action function when pressed submit', () => {
+    const guessWordMock = jest.fn()
+    const wrapper = shallow(<UnconnectedForm guessWord={guessWordMock}/>)
+    findByTestAttr(wrapper, 'submit').simulate('click')
+    expect(guessWordMock.mock.calls.length).toEqual(1)
   })
 })

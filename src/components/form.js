@@ -3,15 +3,18 @@ import {connect} from 'react-redux'
 import Jotto from "./jottoContent";
 import {guessWord} from '../actions'
 
-class Form extends Component {
-
+export class UnconnectedForm extends Component {
 render() {
   const contents = this.props.successReducer ? null : 
   (
     <form >
       <input data-test='input' type="text" name='name'/> 
       <br></br>
-      <input data-test='submit' type="submit" ></input>
+      <input 
+      onClick={() => this.props.guessWord()}
+      data-test='submit' 
+      type="submit" 
+      ></input>
     </form>
   )
   return(
@@ -24,4 +27,4 @@ render() {
     return {successReducer}
   }
 
-  export default connect(mapStateToProps, {guessWord})(Form  );
+  export default connect(mapStateToProps, {guessWord})(UnconnectedForm  );
