@@ -4,14 +4,25 @@ import Jotto from "./jottoContent";
 import {guessWord} from '../actions'
 
 export class UnconnectedForm extends Component {
+  constructor(props){
+  super(props)
+  this.state = {
+    currentGuess: ''
+  }
+  }
+
+  submitCurrentGuess(){
+    this.props.guessWord(this.state.currentGuess)
+  }
 render() {
   const contents = this.props.successReducer ? null : 
   (
     <form >
-      <input data-test='input' type="text" name='name'/> 
+      <input data-test='input' type="text"
+      onChange={(e) => this.setState({currentGuess: e.target.value})}/> 
       <br></br>
       <input 
-      onClick={() => this.props.guessWord()}
+      onClick={() => this.submitCurrentGuess()}
       data-test='submit' 
       type="submit" 
       ></input>

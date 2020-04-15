@@ -39,6 +39,12 @@ describe('Form', () => {
 })
 
 describe('Redux props', () => {
+  var guessWordMock
+  const wrong = 'train'
+  beforeEach(() => {
+  guessWordMock = jest.fn()
+  })
+
   it('has success state as props', () => {
   const successReducer = true
   const wrapper = setup({successReducer})
@@ -52,9 +58,14 @@ describe('Redux props', () => {
     expect(guessWordProp).toBeInstanceOf(Function)
   })
   it('calls the GUESSWORD action function when pressed submit', () => {
-    const guessWordMock = jest.fn()
     const wrapper = shallow(<UnconnectedForm guessWord={guessWordMock}/>)
     findByTestAttr(wrapper, 'submit').simulate('click')
     expect(guessWordMock.mock.calls.length).toEqual(1)
+  })
+  it('pass through input text as arguement', () => {
+    const wrapper = shallow(<UnconnectedForm guessWord={guessWordMock}/>)
+    wrapper.setState({currentGuess: wrong})
+    findByTestAttr(wrapper, 'submit').simulate('click')
+    expect(guessWordMock).toBeCalledWith(wrong)
   })
 })
