@@ -13,14 +13,14 @@ export class Jotto extends Component {
     return (
       <div data-test='Jotto-page'>
         <h2> This is Jotto</h2>
-        <Win successReducer={false}/> 
-        <Form/> 
-        <GuessWords guessedWords={[]}/> 
+        <Win successReducer={this.props.successReducer}/> 
+        <Form successReducer={this.props.successReducer}/> 
+        <GuessWords guessedWords={this.props.guessedWordsReducer}/> 
       </div>
     );
 }}
 const mapStateToProps = (state) => {
-  const {successReducer, guessedWordsReducer, secretWordReducer} = state
+  const {successReducer, guessedWordsReducer, secretWordReducer } = state
   return {successReducer, guessedWordsReducer, secretWordReducer}
 }
 
