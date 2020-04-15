@@ -1,5 +1,6 @@
 import {getLetterMatchCount} from '../helpers'
 import axios from 'axios'
+import randomWords from '../random-word'
 
 export const actionTypes = {
   CORRECT_GUESS: 'CORRECT_GUESS',
@@ -34,12 +35,13 @@ export const guessWord = (guessedWord) => {
 }
  
 export const getSecretWord = () => {
+  var word = randomWords.fiveLetterWords[Math.floor(Math.random() * randomWords.fiveLetterWords.length)]
   return (dispatch) => {
     return axios.get('http://localhost:3000')
     .then(response => {
       dispatch({
         type: actionTypes.SET_SECRET_WORD,
-        payload: response.data
+        payload: word
       })
     } )
   }

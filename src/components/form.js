@@ -11,7 +11,8 @@ export class UnconnectedForm extends Component {
   }
   }
 
-  submitCurrentGuess(){
+  submitCurrentGuess(e){
+    e.preventDefault()
     this.props.guessWord(this.state.currentGuess)
   }
 render() {
@@ -22,7 +23,7 @@ render() {
       onChange={(e) => this.setState({currentGuess: e.target.value})}/> 
       <br></br>
       <input 
-      onClick={() => this.submitCurrentGuess()}
+      onClick={(e) => this.submitCurrentGuess(e)}
       data-test='submit' 
       type="submit" 
       ></input>
